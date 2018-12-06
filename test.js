@@ -6,5 +6,8 @@ const puppeteer = require('puppeteer');
         args: ['--no-sandbox', '--disable-dev-shm-usage'],
       })
       .then(async (browser) => {
-        // your code
+          const page = await browser.newPage();
+          await page.goto('https://baidu.com');
+          await page.screenshot({path: 'google.png'});
+          await browser.close();
       });
